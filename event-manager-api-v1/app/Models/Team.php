@@ -10,10 +10,10 @@ class Team extends Model
     /** @use HasFactory<\Database\Factories\TeamFactory> */
     use HasFactory;
 
-    public function teams() {
+    public function registrations() {
         return $this->hasMany(Registration::class);
     }
     public function event() {
-        return $this->hasOne(Event::class);
+        return $this->belongsTo(Event::class);
     }
 }
