@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Event;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,9 @@ class RegistrationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(),
+            'team_id' => Team::factory(),
+            'event_id' => Event::factory(),
         ];
     }
 }
