@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\TeamResource;
 
 
 class TeamController extends Controller
@@ -15,7 +16,10 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        return TeamResource::collection(Team::paginate());
+//        $teams = Team::with(['leader', 'members.user'])->get();
+//
+//        return response()->json($teams);
     }
 
     /**
@@ -39,7 +43,7 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //
+
     }
 
     /**

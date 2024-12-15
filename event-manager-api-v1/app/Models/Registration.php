@@ -11,12 +11,12 @@ class Registration extends Model
     use HasFactory;
 
     public function user() {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function team() {
-        return $this->hasOne(Team::class);
+        return $this->belongsTo(Team::class, 'team_id');
     }
     public function event() {
-        return $this->hasOne(Event::class);
+        return $this->belongsTo(Event::class, 'event_id');
     }
 }

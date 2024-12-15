@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Event;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,12 @@ class RegistrationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::factory(),  // Assuming user IDs are 1-100
+            'team_id' => Team::factory(),  // Assuming team IDs are 1-50
+            'event_id' => Event::factory(), // Assuming event IDs are 1-10
+            'registered_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }
