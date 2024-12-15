@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Mail\AcceptanceMail;
 use App\Models\Registration;
 use App\Http\Requests\StoreRegistrationRequest;
 use App\Http\Requests\UpdateRegistrationRequest;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 
 class RegistrationController extends Controller
@@ -78,6 +80,8 @@ class RegistrationController extends Controller
             'event_id' => $request->event_id,
             'registered_at' => now(),
         ]);
+
+        Mail::to($request->email)->send(new AcceptanceMail($request->name));
 
         return response()->json([
             'message' => 'Registration successfully created.',
