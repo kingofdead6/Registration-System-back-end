@@ -23,7 +23,7 @@ Before setting up the project, make sure you have the following installed on you
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/your-laravel-project.git
+git clone https://github.com/kingofdead6/Registration-System-back-end.git
 ```
 cd your-laravel-project
 ### 2. Install Dependencies

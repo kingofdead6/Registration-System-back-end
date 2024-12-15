@@ -18,23 +18,26 @@
     "team_leader_email": "leader@example.com",
     "event_id": 1
 }
+```
 
 Response:
 Success (201 Created):
 
-json
+```json
 Copy code
 {
     "message": "Team successfully created.",
     "team_id": 5
 }
+```
 Error (404 Not Found):
 
-json
+```json
 Copy code
 {
     "message": "Team leader not found with the provided email."
 }
+```
 
 ## 2. Check Team Existence by Name
 
@@ -47,20 +50,22 @@ name (string) - The name of the team to check.
 Response:
 Success (200 OK):
 
-json
+```json
 Copy code
 {
     "message": "The team exists.",
     "team_id": 5,
     "team_name": "Team Alpha"
 }
+```
 Error (404 Not Found):
 
-json
+```json
 Copy code
 {
     "message": "The team does not exist."
 }
+```
 
 ## 3. Create Registration
 
@@ -68,6 +73,7 @@ Endpoint: POST /registrations
 
 Description: Registers a user for an event and associates them with a team. If the user doesn't exist, they are created. Duplicate registrations are prevented.
 
+```json
 Request Body:
 {
     "name": "John Doe",
@@ -79,11 +85,12 @@ Request Body:
     "team_id": 1,
     "event_id": 1
 }
+```
 
 Response:
 Success (201 Created):
 
-json
+```json
 Copy code
 {
     "message": "Registration successfully created.",
@@ -95,13 +102,15 @@ Copy code
         "registered_at": "2024-12-15T14:55:00"
     }
 }
+```
 Error (409 Conflict):
 
-json
+```json
 Copy code
 {
     "message": "The user is already registered for this event under the selected team."
 }
+```
 
 ## 4. Get All Teams with Leader and Members
 Endpoint: GET /teams
@@ -110,7 +119,7 @@ Description: Fetches all teams along with their leaders and members.
 
 Response:
 Success (200 OK):
-json
+```json
 Copy code
 [
     {
@@ -129,4 +138,4 @@ Copy code
             }
         ]
     }
-]
+]```
