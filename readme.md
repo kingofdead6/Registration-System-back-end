@@ -11,7 +11,7 @@ Before setting up the project, make sure you have the following installed on you
 - **PHP** (version 8.1 or above) – Laravel requires PHP 8.1 or later.
 - **Composer** – A tool for dependency management in PHP.
 - **Node.js** (version 16 or above) – For handling JavaScript and front-end dependencies.
-- **MySQL** or **MariaDB** – A relational database system supported by Laravel.
+- **MySQL** – A relational database system supported by Laravel.
 - **Git** – For cloning the repository.
 
 ---
@@ -24,30 +24,31 @@ First, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/your-username/your-laravel-project.git
+```
 cd your-laravel-project
-2. Install Dependencies
+### 2. Install Dependencies
 Backend (PHP Dependencies)
 Run Composer to install all PHP dependencies:
 
-bash
-Copy code
+```bash
 composer install
+```
 Frontend (JavaScript/CSS Dependencies)
 Install Node.js dependencies:
 
-bash
-Copy code
+```bash
 npm install
-3. Set Up Environment File
+```
+### 3. Set Up Environment File
 Laravel uses an .env file to store environment variables. Copy the example .env file to .env:
 
-bash
-Copy code
+```bash
 cp .env.example .env
-4. Configure Database
+```
+### 4. Configure Database
 Open the .env file and configure your database connection:
 
-env
+```env
 Copy code
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -55,30 +56,31 @@ DB_PORT=3306
 DB_DATABASE=your_database_name
 DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
-Make sure to create the database in MySQL or MariaDB before proceeding.
+Make sure to create the database in MySQL before proceeding.
+```
 
-5. Generate Application Key
+### 5. Generate Application Key
 Laravel requires an application key for security purposes. Run the following Artisan command to generate it:
 
-bash
-Copy code
+```bash
 php artisan key:generate
-6. Run Migrations
-If the project uses database migrations, run the following command to set up the database schema:
+```
+### 6. Run Migrations
+run the following command to set up the database schema:
 
-bash
-Copy code
+```bash
 php artisan migrate
-7. (Optional) Seed the Database
-If the project includes seeders to populate the database with test data, you can run:
+```
+### 7. (Optional) Seed the Database
+you can run to seed database:
 
-bash
-Copy code
+```bash
 php artisan db:seed
-8. Run the Application
+```
+### 8. Run the Application
 Start the Laravel development server:
 
-bash
-Copy code
+```bash
 php artisan serve
+```
 By default, the application will be available at http://127.0.0.1:8000.
