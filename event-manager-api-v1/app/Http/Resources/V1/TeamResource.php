@@ -19,6 +19,7 @@ class TeamResource extends JsonResource
             'teamName' => $this->team_name,
             'teamLeader',
             'accepted' => $this->accepted,
+
         ];
     }
 }

@@ -10,6 +10,14 @@ class Registration extends Model
     /** @use HasFactory<\Database\Factories\RegistrationFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'team_id',
+        'event_id',
+        'registered_at',
+    ];
+
+
     public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
