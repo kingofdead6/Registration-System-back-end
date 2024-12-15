@@ -16,3 +16,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
     Route::apiResource('teams', TeamController::class);
     Route::apiResource('events', EventController::class);
 });
+
+Route::post('/registrations', [RegistrationController::class, 'store']);
+
+Route::post('/teams', [TeamController::class, 'createTeam']);
+Route::get('/teams/check/{name}', [TeamController::class, 'checkTeamByName']);
