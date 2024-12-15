@@ -38,14 +38,23 @@ class TeamController extends Controller
         // Validate the incoming request
         $validated = $request->validate([
             'team_name' => 'required|string|max:100|unique:teams,team_name',
-            'team_leader_id' => 'required|exists:users,id',
+            'team_leader_email' => 'required|email|exists:users,email', // Validate the leader's email
             'event_id' => 'required|exists:events,id',
         ]);
 
-        // Create the team
+        // Find the user (team leader) by email
+        $teamLeader = User::where('email', $validated['team_leader_email'])->first();
+
+        if (!$teamLeader) {
+            return response()->json([
+                'message' => 'Team leader not found with the provided email.',
+            ], 404);
+        }
+
+        // Create the team with the retrieved team leader's ID
         $team = Team::create([
             'team_name' => $validated['team_name'],
-            'team_leader_id' => $validated['team_leader_id'],
+            'team_leader_id' => $teamLeader->id, // Use the leader's ID
             'event_id' => $validated['event_id'],
         ]);
 
@@ -54,6 +63,7 @@ class TeamController extends Controller
             'team_id' => $team->id,
         ], 201);
     }
+
 
     /**
      * Display the specified resource.
